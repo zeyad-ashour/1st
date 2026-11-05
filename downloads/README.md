@@ -1,34 +1,31 @@
-# Nusuk Quiz Assistant — 1.4.0
+# Nusuk Quiz Assistant — 1.3.2 (Android 11+)
 
-## اختر النسخة المناسبة
+[Download APK 1.3.2](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.2.apk)
 
-- [BlueStacks Nougat/Pie / Android 7+ APK](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.4.0-Android7plus.apk): Android 7.0/API 24 or newer; no native ABI requirement, suitable for x86/ARM 32/64-bit environments. **Accessibility text reading, gestures, AI, local bank, import/export. No screenshot OCR in this compatibility variant.**
-- [Android 11+ full OCR APK](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.4.0-Android11.apk): ARM64/x86_64, includes the existing Arabic screenshot OCR.
+Based on the full Android 11+ 1.3.1 feature set, including Arabic OCR, direct AI, local bank, import and export. This is not the Android 7 compatibility variant. Same signing certificate and higher versionCode=12 permit updating earlier builds without uninstalling or clearing data.
 
-Same package/signing certificate as earlier APKs. Debug/test builds. Install as an update to retain the bank and encrypted device-local key. For the user's P64 (Pie/Android 9) BlueStacks instance, use Android7plus rather than Android11.
+## خطأ الدخول إلى الأبواب
 
-## تجربة نسخة المحاكي
+- يبدأ من باب السيرة النبوية، أو آخر باب عمل في الجلسات السابقة.
+- عند قراءة رسالة **حدث خطأ / حدث خطأ ما** مع **يرجى إعادة المحاولة لاحقًا** وزر **إغلاق**، يغلق الرسالة في الوضع التلقائي. لا تُعامل رسائل AI أو الإجابة الخاطئة أو مجرد وجود زر إغلاق كخطأ أبواب.
+- لا يُغيّر الباب حتى تختفي رسالة الخطأ فعليًا. بعدها ينتقل بالترتيب: السيرة النبوية → القرآن الكريم → مكة المكرمة والمسجد الحرام → المدينة المنورة والمسجد النبوي.
+- إذا كانت صفحة الأبواب غير ظاهرة بعد الإغلاق، يجرب الرجوع ضمن تطبيق نسك، بحد محاولتين؛ إذا لم يصل لصفحة الأبواب يطلب فتحها يدويًا ويتابع عند ظهورها.
+- يستمر على الباب الحالي بعد نجاح فتح السؤال، بما في ذلك الجولات التالية. لا يبدله إلا عند ظهور رسالة الخطأ المحددة.
+- إذا فشلت الأبواب الأربعة قبل ظهور سؤال، ينتظر 30 ثانية ثم يعيد المحاولة. إغلاق الرسالة له محاولات محدودة وفاصل بين المحاولات؛ لا يعيد صرف مفتاح بسبب تكرار نفس الشاشة.
+- المساعدة تعرض الحالة دون ضغط إذا كان الوضع التلقائي مقفولًا. لا تتغير إعدادات AI أو إجابات البنك.
 
-1. نزّل Android7plus APK واسحبه إلى نفس نافذة BlueStacks التي يعمل نسك داخلها، أو استخدم Install APK.
-2. فعّل خدمة إمكانية الوصول للمساعد، ثم المساعدة العائمة. استورد البنك إن كان المحاكي جديدًا واضبط مفتاح AI محليًا.
-3. جرّب السؤال المحلي أولًا، ثم افتح نسك وراقب قراءة السؤال. إذا كانت النصوص غير متاحة لإمكانية الوصول، ستوضح النسخة أن OCR غير متاح ولن تضغط على اختيار غير مقروء. لا تُضمن قراءة شاشة رسومية أو نسك نفسه داخل المحاكي دون اختبار فعلي.
-4. الاختيار التلقائي يحتاج الزر 3 من الرئيسية. إجابات AI التلقائية تحتاج مفتاحًا منفصلًا في إعدادات AI.
+## الاستخدام
 
-The compatibility variant does not implement MediaProjection screenshot capture. This is an accessibility-first install/reading test, not a claim of legacy OCR support or emulator security compatibility.
-
-## البنك المحلي
+ثبّت التحديث دون حذف التطبيق السابق، فعّل خدمة إمكانية الوصول والمساعدة العائمة والوضع التلقائي من الزر 3. افتح نسك وراقب أول استرداد للخطأ. قراءة OCR وصلاحيات Android 11+ كما في 1.3.1. عند نجاح قراءة السؤال، يراجع البنك المعتمد قبل طلب AI.
 
 [Prepared bank ZIP](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/nusuk-question-bank.zip)
 
-الاستيراد عبر JSON بعد استخراج ZIP؛ المكرر لا يُضاف والمتعارض لا يستبدل الإجابات الحالية. الاعتماد صريح بعد المراجعة. زر **تصدير بنك الأسئلة الحالي** يحفظ جميع الأسئلة والإجابات وحالة اعتمادها إلى ملف تختاره، دون مفتاح AI. إعادة الاستيراد تتطلب مراجعة الاعتماد ولا تثق تلقائيًا في حقول verified داخل الملفات.
+الاستيراد والتصدير يحتفظان بنفس السلوك السابق؛ لا تُرفع مفاتيح أو بيانات المستخدم تلقائيًا.
 
 ## Actual validation
 
-Compatibility: 95 local tests passed, including six SDK-specific test executions on Robolectric Android 7.0/API 24 and 7.1/API 25 covering Activity/insets/settings, service connection without loading native OCR libraries, gesture construction, and bank import/export. Full Android 11+ variant: 89 regression tests passed. Android Lint: no errors in either variant; compatibility has one unused-newer-attribute warning, standard has five obsolete-version-guard warnings. Both APK signatures and alignment checked; certificate matches earlier builds. Compatibility APK manifest minSdk=24 and contains no native .so libraries.
+100 local tests passed (89 regression tests plus 11 door-recovery tests). Includes the screenshot's error wording, combined OCR text, missing/ambiguous close targets, switching across four doors, sticky working-door selection, backoff, restored selection, manual navigation, and preventing duplicate open attempts. Android Lint: no errors, one harmless obsolete-version-guard warning. APK signature, update certificate, minSdk=30, version metadata and ZIP/native alignment verified. Full Arabic OCR assets and ARM64/x86_64 Tesseract libraries are present.
 
-**No actual BlueStacks instance/device or live Gemini key was available. Installation and reading of Nusuk on the user's emulator remain to be tested.**
+**No live Nusuk UI/device was available. Actual modal closing, Back behavior, category labels and service availability must be checked on the user's device.**
 
-SHA-256:
-
-- `NusukQuizAssistant-1.4.0-Android7plus.apk`: `f70e4d05c834968686305afe84a1be8063775d4695afffd675d387ec4a85f4af`
-- `NusukQuizAssistant-1.4.0-Android11.apk`: `92f17fa1091da6ac08861d3b25b49a5a20a59d3c604ca3a67560baf47d78e7af`
+SHA-256: `99d87de00fea8ed1af95dd4c661324ef332d903c424d4e44a515607c247f4627`
