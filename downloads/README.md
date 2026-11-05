@@ -1,12 +1,23 @@
-# Nusuk Quiz Assistant — 1.3.6 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.7 (Android 11+)
 
-[Download APK 1.3.6](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.6.apk)
+[Download APK 1.3.7](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.7.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=16. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=17. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## منع المشاركة والتشغيل والاستئناف التلقائي
+
+- لا يُستخدم رابط **شارك لتحصل على فرصة** كخطوة في التتابع. إذا كانت مساحة زر تتداخل معه، تُرفض الضغطة. أزرار إعادة اللعب/السؤال التالي التي تظهر بجوار رابط المشاركة تُراجع بصريًا قبل الضغط على موضع النص، بدل الثقة في مساحة وصول قد تشمل الزر والرابط معًا. التحقق الإضافي خاص بهذه المرحلة؛ بقية الخطوات تبقى سريعة.
+- عند التعرف على نافذة مشاركة النظام بعد تشغيل نسك، تُغلق بزر **رجوع** فقط، بحد محاولتين وفاصل بينهما. لا تُختار جهة اتصال أو تطبيق أو زر إرسال. نوافذ المشاركة داخل التطبيق تُغلق عندما يظهر عنوان مشاركة ووجهة وزر إغلاق واضح ومحدد.
+- بعد إغلاق مشاركة ظهرت بالخطأ عقب زر إعادة اللعب، يُعاد تحديد زر العودة بصريًا لاستكمال التتابع؛ لا تُكرر ضغطة **افتح الباب** أو **تحقق** لمجرد عدم وصول تأكيدها.
+- التشغيل التلقائي عند الجاهزية مُفعّل افتراضيًا: يلزم تفعيل خدمة إمكانية الوصول من Android، وأن تكون الشاشة مضاءة وغير مقفلة، وأن يظهر نسك أو يتم التعرف عليه داخل Parallel Space، مع وجود إجابات محلية أو اتصال AI مضبوط. يمكن بدء القراءة وحدها للتعرف على نسخة Parallel قبل السماح بالضغط.
+- **الإيقاف اليدوي له الأولوية:** الإيقاف من التطبيق أو الشريط يظل نافذًا حتى تشغيل/استئناف أو تفعيل التشغيل عند الجاهزية مجددًا. لا يفعّل المساعد خدمة الوصول أو يفتح قفل الجهاز بنفسه.
+- عند تعطل التقدم تظهر لوحة عائمة بسبب التوقف وأزرار **تشغيل / استئناف**، **إيقاف**، **إعادة جلسة AI**. الاستئناف يعيد إنشاء قارئ الشاشة مع الحفاظ على عدد طلبات AI المستخدمة. تجديد حد الطلبات يحدث فقط عند الضغط صراحة على إعادة جلسة AI؛ نفاد حصة الخادم أو عدم توافره لا يُحل بتكرار الضغط.
+- أضيفت مهلة 3 ثوانٍ لانتظار نتيجة الضغط، و12 ثانية لانتظار القراءة البصرية، لمنع التعليق الصامت. الحساب الآخر يستطيع الاستمرار. إعادة محاولة اختيار الباب محدودة؛ صرف المفتاح والتأكيد لا يعادان تلقائيًا عند عدم اليقين.
+- تُفهم نتيجة السؤال داخل عبارة النجاح الطويلة، ويستمر زر السؤال التالي أو إعادة اللعب بعد انتهاء الجولة، بما في ذلك تكرار نفس السؤال في جولة جديدة. يتاح استئناف الحساب بعد زوال رسالة نفاد المفاتيح وظهور شاشة جاهزة.
 
 ## التعرف التلقائي على الحسابات
 
-تم حذف مفتاح **تشغيل الحسابين بتقسيم الشاشة** من الواجهة. المساعد يكتشف نافذة نسك الواحدة أو النافذتين الظاهرتين تلقائيًا، بما فيهما Parallel Space؛ لا يتطلب اختيار وضع يدوي، ولا يمنعه إعداد المفتاح القديم لو كان مقفولًا. عند ظهور الحساب الثاني يبدأ التبادل، وعند اختفائه يكمل الحساب الموجود. إيقاف وتشغيل المساعدة والتتابع يظل تحت تحكم المستخدم.
+تم حذف مفتاح **تشغيل الحسابين بتقسيم الشاشة** من الواجهة. المساعد يكتشف نافذة نسك الواحدة أو النافذتين الظاهرتين تلقائيًا، بما فيهما Parallel Space؛ لا يتطلب اختيار وضع يدوي، ولا يمنعه إعداد المفتاح القديم لو كان مقفولًا. عند ظهور الحساب الثاني يبدأ التبادل، وعند اختفائه يكمل الحساب الموجود. الإيقاف اليدوي يظل تحت تحكم المستخدم، والتشغيل عند الجاهزية يمكن تعطيله من الصفحة الرئيسية.
 
 يُحتفظ بآخر باب عامل من إعدادات الحساب الواحد السابقة، ولا يتسبب تغيير حجم النافذة عند إضافة أو إغلاق الحساب الثاني في تكرار ضغطة **افتح الباب** التي اكتملت بالفعل.
 
@@ -35,8 +46,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 1. ثبّت التحديث فوق النسخة الحالية، وتأكد أن خدمة إمكانية الوصول والمساعدة مفعّلتان.
 2. افتح نسك بحساب واحد، أو افتح نسك الأصلي ونسخة Parallel Space ظاهرين جنب بعض. اكتشاف عدد الحسابات تلقائي؛ افتح صفحة الأبواب أول مرة للتعرف على النسخة داخل Parallel Space.
-3. فعّل الاختيار والتكرار التلقائيين من الزر 3. اتصال AI وإعداد الاعتماد التلقائي يظلان كما ضبطتهما؛ لا حاجة إلى مفتاح وضع الحسابين.
-4. الشريط يعرض حالة الحساب أو الحسابين. الضغط عليه يوقف التتابع؛ إيقاف التلقائي ثم تفعيله يعيد تشغيل حالة الحسابات.
+3. التشغيل عند الجاهزية مفعّل افتراضيًا. يمكن التشغيل/الإيقاف أيضًا من الزر 3، أو من لوحة الاستئناف العائمة عند الحاجة. اتصال AI وإعداد الاعتماد التلقائي يظلان كما ضبطتهما؛ لا حاجة إلى مفتاح وضع الحسابين.
+4. الشريط يعرض حالة الحساب أو الحسابين. الضغط عليه يوقف التتابع ويعرض أزرار الاستئناف؛ استئناف القراءة لا يصفر عداد AI.
 
 لكل نافذة سؤال، وطلب AI، واختيار، وتأكيد، وباب حالي مستقل. طلبا AI يمكنهما العمل بالتوازي، أما الضغطات فتتم بالتبادل لأن لمس الجهاز مشترك. حد طلبات جلسة AI مشترك بين الحسابين، والبنك المحلي المعتمد مشترك لتقليل الطلبات المتكررة في الجولات التالية.
 
@@ -58,8 +69,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-139 local tests passed: the existing 135 plus automatic detection with the old mode flag disabled, moving from one account to two and back without changing a setting (including restoring the old working door), removal of the manual account-mode switch while retaining the pause control, and preventing a completed key-spending Open action from repeating after a pane resize. Existing alternating-turn, Parallel dialog/helper, OCR, automatic approval, AI, import/export and door-recovery tests remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=16, versionName=1.3.6, minSdk=30 and ZIP/native alignment verified.
+157 local tests passed. Includes 20 consecutive complete single-account rounds (100 actions) without manual restart; result paragraphs and next-question progression; bounded safe category retries; missing gesture callback recovery without repeating Open; continuing the other account; OCR timeout/late result rejection; broad Replay target versus Share link; fresh OCR after an accidental system chooser; closing an owned Share dialog without selecting a destination; chooser identity/window/attempt guards; conditional startup, screen lock/sleep and explicit-stop handling; refusing automatic key spending without bank/configured AI; visible key/budget errors; floating Pause/Resume/AI-session buttons; preserving request counts when recreating readers. All earlier automatic window detection, Parallel, bank/AI and import/export cases remain passing. Android Lint: 0 errors and one existing obsolete API guard warning. Test-only deprecated Robolectric setters emit compiler warnings. APK signature/update certificate, versionCode=17, versionName=1.3.7, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `2c3180bf32e894d6bc40b6ae228bcad350e24f7d6cb4ab6206c0c9ce784a9db2`
+SHA-256: `a8c12ac18d001b848136dc3f6124adcdd4bbdb2e8e226d8406281362586a5fe0`
