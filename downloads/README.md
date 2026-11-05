@@ -1,27 +1,37 @@
-# Nusuk Quiz Assistant — 1.3.4 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.5 (Android 11+)
 
-[Download APK 1.3.4](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.4.apk)
+[Download APK 1.3.5](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.5.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=14. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=15. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## التبادل الفعلي وParallel Space والاعتماد التلقائي
+
+- تُنقل أولوية الدور بعد الضغطة الفعلية: خطوة في الأول، ثم خطوة في الثاني عند جاهزيته، ثم العودة للأول. فحوص الشاشة لا تغيّر الدور. إذا كان أحد الحسابين ينتظر تحميلًا أو AI أو لا يملك خطوة قابلة للتنفيذ، يواصل الحساب الجاهز عمله.
+- تنفذ ضغطة واحدة فقط في اللحظة نفسها. يبدأ فحص الخطوة التالية فور انتهاء الضغطة، مع فاصل حماية 180ms لكل حساب، ومتابعة دورية 200ms لوضع الحسابين؛ تظل حواجز تكرار التأكيد وصرف المفتاح محفوظة.
+- القراءة البصرية في حساب لا توقف قراءة النصوص والضغطات الجاهزة في الحساب الآخر. تُقرأ صورة ثابتة لكل نافذة، ولا تُستخدم نتائج OCR بعد تغيّر نافذتها أو محتواها.
+- نافذة تأكيد الباب تُربط بالجزء الذي يحتويها، وتُقرأ بدل صفحة الأبواب الموجودة خلفها. لا تُحسب كحساب ثالث. يُتابع الحساب بعد تغيّر رقم النافذة، أو الانتقال إلى حزمة مساعد Parallel Space المعروفة `.arm64` أو `.arm` في نفس الجزء أثناء التتابع. لا تُسمح حزم تطبيقات عشوائية.
+- **حسب طلب المستخدم، الاعتماد التلقائي مُفعّل افتراضيًا في هذا التحديث:** تُستخدم إجابات البنك الموجودة والمستورد الجديد، وتُعتمد ردود AI الصالحة دون خطوة مراجعة يدوية، حتى لو كان تقدير ثقة النموذج منخفضًا. هذا اعتماد للتشغيل، وليس إثباتًا لصحة الإجابة.
+- AI المرفوض أو الرد غير الصالح لا يتحول إلى اختيار عشوائي. الإجابة التي ظهرت لها نتيجة خطأ تُستبعد من اقتراحات AI المعتمدة، ويستمر التتابع في وضع الاعتماد التلقائي. تظل البيانات المتعارضة أو التالفة في الاستيراد مستبعدة.
+- مفتاح **اعتماد إجابات البنك وAI تلقائيًا** في الصفحة الرئيسية يسمح بالعودة للوضع السابق إذا رغبت. إيقاف التتابع بالزر أو الشريط العائم مستقل؛ التحديث لا يعيد تشغيل حساب أوقفه المستخدم بنفسه. إعدادات الاتصال، المفتاح، وحد طلبات AI لا تتغير.
 
 ## تحسين السرعة والأسئلة التي لا تصل إلى AI
 
-- الفاصل الداخلي الأدنى بين الضغطات 350ms بدلًا من 2500ms، والمتابعة الدورية 400ms بدلًا من 1800ms. أحداث نسك تعجّل المتابعة دون إلغاء موعد أقرب كان مجدولًا؛ انتهاء الضغط أو رد AI يعجّل الخطوة التالية.
+- التسريع السابق خفّض انتظار الحساب الواحد إلى 350ms والمتابعة إلى 400ms؛ وضع الحسابين في 1.3.5 يستخدم 180ms لكل حساب و200ms للمتابعة، ويعجّل المتابعة عند انتهاء الضغطة أو وصول الرد. أحداث نسك تعجّل المتابعة دون إلغاء موعد أقرب كان مجدولًا؛ انتهاء الضغط أو رد AI يعجّل الخطوة التالية.
 - تستمر حماية منع تكرار فتح الباب أو التأكيد على نفس الجولة؛ تقليل الانتظار لا يسمح بصرف مفتاحين على نفس الشاشة.
 - لا يعيد التحقق من حساب واحد مسح نصوص الحساب الآخر. تظل القراءة البصرية مقصورة على نافذة الحساب المطلوب، وبفاصل لا يقل عن 600ms بين محاولات الالتقاط. لم تُلغَ ضوابط صلاحية الصورة أو فصل الحسابين.
 - تُحلّل صيغة بنك الأسئلة المحفوظة مرة واحدة حتى يتغير محتواها؛ مطابقة السؤال الكامل واختياراته تستبدل البحث في كل تجميعات أسطر الشاشة عندما تكون قراءته كاملة.
 - إصلاح تجاهل الاختيارات الرقمية، بما فيها الأرقام العربية والفارسية، ودعم صيغ مثل «بماذا»، «بمن»، «لمن»، «على يد من»، والأسئلة الواضحة المنتهية بعلامة استفهام.
-- وجود إجابة قديمة للبنك خارج الاختيارات الحالية لا يحجب طلب AI. لا تُعتمد إجابة غير مؤكدة أو مطابقة ملتبسة تلقائيًا.
+- وجود إجابة قديمة للبنك خارج الاختيارات الحالية لا يحجب طلب AI. في وضع الاعتماد التلقائي يُستخدم رد AI الصالح مهما كان تقدير ثقته؛ المطابقة الملتبسة بين عدة اختيارات لا تولّد ضغطة عشوائية.
 - الانتقال اليدوي لسؤال مختلف يلغي انتظار طلب السؤال القديم ويسمح بطلب السؤال الحالي دون تصفير عداد الطلبات أو استخدام الرد المتأخر.
-- عند عدم اكتمال قراءة السؤال وأربعة اختيارات تظهر رسالة توضح ذلك. أخطاء AI وانخفاض الثقة وغياب السماح بالإجابة التلقائية تظل ظاهرة؛ سرعة خدمة AI وتحميل نسك لا يمكن ضمانها.
+- عند عدم اكتمال قراءة السؤال وأربعة اختيارات تظهر رسالة توضح ذلك. أخطاء AI وعدم اكتمال القراءة تظل ظاهرة؛ سرعة خدمة AI وتحميل نسك لا يمكن ضمانها.
 
 ## تشغيل حسابين جنب بعض
 
 1. ثبّت التحديث، وتأكد أن خدمة إمكانية الوصول والمساعدة مفعّلتان.
 2. فعّل **تشغيل الحسابين بتقسيم الشاشة** من الصفحة الرئيسية للمساعد؛ الوضع مقفول افتراضيًا للحفاظ على التشغيل بحساب واحد.
 3. افتح نسك الأصلي ونسخته داخل Parallel Space جنب بعض، وكلاهما على صفحة الأبواب أول مرة.
-4. فعّل الاختيار والتكرار التلقائيين من الزر 3. إذا كنت تعتمد على AI، فعّل AI والسماح بإجاباته التلقائية في إعداداته كما في النسخة السابقة.
-5. راقب أول جولة في النافذتين. الشريط يعرض حالة منفصلة لكل جانب؛ الضغط عليه يوقف الوضع التلقائي للحسابين. لاستئناف حساب توقف للمراجعة، أوقف التلقائي ثم فعّله مجددًا.
+4. فعّل الاختيار والتكرار التلقائيين من الزر 3. إذا كنت تعتمد على AI، تأكد أن الاتصال به مفعّل في إعداداته. الاعتماد التلقائي للبنك وردود AI مفعّل في هذا التحديث.
+5. راقب أول جولة في النافذتين. الشريط يعرض حالة منفصلة لكل جانب؛ الضغط عليه يوقف الوضع التلقائي للحسابين. إيقاف التلقائي ثم تفعيله يعيد تشغيل حالة الحسابين.
 
 لكل نافذة سؤال، وطلب AI، واختيار، وتأكيد، وباب حالي مستقل. طلبا AI يمكنهما العمل بالتوازي، أما الضغطات فتتم بالتبادل لأن لمس الجهاز مشترك. حد طلبات جلسة AI مشترك بين الحسابين، والبنك المحلي المعتمد مشترك لتقليل الطلبات المتكررة في الجولات التالية.
 
@@ -43,8 +53,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-124 local tests passed (110 existing plus 14 new parser, fast-flow and AI recovery cases). Covers numeric choices in native/OCR text, Arabic/Persian numbers, previously unrecognized question forms, inherited clickable question nodes, incomplete/duplicate choice rejection, unusable bank answers falling back to AI, manual question changes while an old request is pending, budget preservation, bank cache invalidation, short tap debounce, and duplicate-submit protection after partial frames. A local 2,001-entry bank scenario completed ten question matches successfully; this is not a device speed benchmark. All existing two-account isolation and door-recovery tests also passed. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, version metadata, minSdk=30 and ZIP/native alignment verified.
+135 local tests passed. Adds actual-action turn alternation despite extra scans, ready-account progress when the other lane is blocked, Parallel Space door-dialog ownership and Open action, scoped top-dialog reading, known helper-package/window replacement, nonblocking OCR and its next-turn delivery, stale OCR rejection, automatic approval of existing/imported/new AI answers (including low confidence), preserving rejection of explicitly wrong AI answers, automatic import without a manual approval screen, migration respecting the pause switch and later opt-out, and continuing the result/replay sequence after an AI error. All 124 earlier speed, parser, two-account isolation, AI protocol, import/export and door-recovery tests remain passing. Android Lint: 0 errors and one existing obsolete API guard warning. APK signing/update certificate, versionCode=15, versionName=1.3.5, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `38a2acb71aaa26102fb6df8e0f3b063999c751705065ab62eb7a7357ce22020e`
+SHA-256: `fda60f211b2b96e50b2d8bc9f59f200264b42b6e1df19513bd96078ce2a2ff86`
