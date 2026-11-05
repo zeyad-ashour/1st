@@ -1,31 +1,39 @@
-# Nusuk Quiz Assistant — 1.3.2 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.3 (Android 11+)
 
-[Download APK 1.3.2](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.2.apk)
+[Download APK 1.3.3](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.3.apk)
 
-Based on the full Android 11+ 1.3.1 feature set, including Arabic OCR, direct AI, local bank, import and export. This is not the Android 7 compatibility variant. Same signing certificate and higher versionCode=12 permit updating earlier builds without uninstalling or clearing data.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=13. Install over the earlier full build without uninstalling or clearing its bank/settings.
 
-## خطأ الدخول إلى الأبواب
+## تشغيل حسابين جنب بعض
 
-- يبدأ من باب السيرة النبوية، أو آخر باب عمل في الجلسات السابقة.
-- عند قراءة رسالة **حدث خطأ / حدث خطأ ما** مع **يرجى إعادة المحاولة لاحقًا** وزر **إغلاق**، يغلق الرسالة في الوضع التلقائي. لا تُعامل رسائل AI أو الإجابة الخاطئة أو مجرد وجود زر إغلاق كخطأ أبواب.
-- لا يُغيّر الباب حتى تختفي رسالة الخطأ فعليًا. بعدها ينتقل بالترتيب: السيرة النبوية → القرآن الكريم → مكة المكرمة والمسجد الحرام → المدينة المنورة والمسجد النبوي.
-- إذا كانت صفحة الأبواب غير ظاهرة بعد الإغلاق، يجرب الرجوع ضمن تطبيق نسك، بحد محاولتين؛ إذا لم يصل لصفحة الأبواب يطلب فتحها يدويًا ويتابع عند ظهورها.
-- يستمر على الباب الحالي بعد نجاح فتح السؤال، بما في ذلك الجولات التالية. لا يبدله إلا عند ظهور رسالة الخطأ المحددة.
-- إذا فشلت الأبواب الأربعة قبل ظهور سؤال، ينتظر 30 ثانية ثم يعيد المحاولة. إغلاق الرسالة له محاولات محدودة وفاصل بين المحاولات؛ لا يعيد صرف مفتاح بسبب تكرار نفس الشاشة.
-- المساعدة تعرض الحالة دون ضغط إذا كان الوضع التلقائي مقفولًا. لا تتغير إعدادات AI أو إجابات البنك.
+1. ثبّت التحديث، وتأكد أن خدمة إمكانية الوصول والمساعدة مفعّلتان.
+2. فعّل **تشغيل الحسابين بتقسيم الشاشة** من الصفحة الرئيسية للمساعد؛ الوضع مقفول افتراضيًا للحفاظ على التشغيل بحساب واحد.
+3. افتح نسك الأصلي ونسخته داخل Parallel Space جنب بعض، وكلاهما على صفحة الأبواب أول مرة.
+4. فعّل الاختيار والتكرار التلقائيين من الزر 3. إذا كنت تعتمد على AI، فعّل AI والسماح بإجاباته التلقائية في إعداداته كما في النسخة السابقة.
+5. راقب أول جولة في النافذتين. الشريط يعرض حالة منفصلة لكل جانب؛ الضغط عليه يوقف الوضع التلقائي للحسابين. لاستئناف حساب توقف للمراجعة، أوقف التلقائي ثم فعّله مجددًا.
 
-## الاستخدام
+لكل نافذة سؤال، وطلب AI، واختيار، وتأكيد، وباب حالي مستقل. طلبا AI يمكنهما العمل بالتوازي، أما الضغطات فتتم بالتبادل لأن لمس الجهاز مشترك. حد طلبات جلسة AI مشترك بين الحسابين، والبنك المحلي المعتمد مشترك لتقليل الطلبات المتكررة في الجولات التالية.
 
-ثبّت التحديث دون حذف التطبيق السابق، فعّل خدمة إمكانية الوصول والمساعدة العائمة والوضع التلقائي من الزر 3. افتح نسك وراقب أول استرداد للخطأ. قراءة OCR وصلاحيات Android 11+ كما في 1.3.1. عند نجاح قراءة السؤال، يراجع البنك المعتمد قبل طلب AI.
+تُقرأ نوافذ التطبيق المسموح بها فقط. عند الحاجة إلى OCR تُلتقط صورة واحدة، ثم تُقص كل نافذة منفردة قبل القراءة، وتُترجم مواقع الاختيارات إلى إحداثيات الشاشة. لا تُخلط اختيارات النافذتين، ولا تُرسل صور الشاشة إلى AI. الرد المتأخر لا ينفذ ضغطة في نافذة أخرى أو على سؤال مختلف.
+
+الحزمة الافتراضية لنسك `com.moh.nusukapp`، ولـParallel Space `com.lbe.parallel.intl`. قد تختلف حزمة النسخة المثبتة على جهازك: استخدم **نسخ تشخيص نوافذ الحسابين** بعد فتحهما إذا لم تظهر حالتا اليمين والشمال. التشخيص يتضمن أسماء الحزم وأرقام وحدود النوافذ فقط؛ لا يحتوي على أسئلة أو مفتاح API. يمكن تعديل حزمة Parallel Space من الصفحة الرئيسية. فتح صفحة أبواب نسك أولًا مطلوب للتعرف عليه داخل حزمة Parallel Space.
+
+## خطأ الأبواب
+
+عند قراءة «حدث خطأ ما، يرجى إعادة المحاولة لاحقًا» وزر «إغلاق»، يغلق الخطأ ثم يغيّر باب هذا الحساب وحده، بعد اختفاء الرسالة. الترتيب: السيرة → القرآن → مكة → المدينة. يستمر على الباب الذي يعمل، ولا يتوقف الحساب الآخر بسبب رسالة الخطأ أو نفاد المفاتيح في حساب واحد.
+
+الرجوع في وضع الحسابين يستهدف سهم نسك داخل النافذة المعنية، ولا يستخدم زر رجوع Android العام. إذا تعذر الرجوع بعد محاولتين، افتح الأبواب يدويًا وسيكمل. بعد أخطاء الأبواب الأربعة توجد مهلة 30 ثانية. عدد محاولات الإغلاق محدود، ولا تُكرر ضغطة صرف مفتاح على نفس الشاشة.
+
+## البنك والبيانات
 
 [Prepared bank ZIP](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/nusuk-question-bank.zip)
 
-الاستيراد والتصدير يحتفظان بنفس السلوك السابق؛ لا تُرفع مفاتيح أو بيانات المستخدم تلقائيًا.
+الاستيراد والتصدير كما في الإصدار السابق. مفاتيح AI وبنك المستخدم تبقى على جهازه. عند تشغيل AI يُرسل نص السؤال واختياراته فقط إلى الخدمة المضبوطة. لا يتطلب Root.
 
-## Actual validation
+## Validation
 
-100 local tests passed (89 regression tests plus 11 door-recovery tests). Includes the screenshot's error wording, combined OCR text, missing/ambiguous close targets, switching across four doors, sticky working-door selection, backoff, restored selection, manual navigation, and preventing duplicate open attempts. Android Lint: no errors, one harmless obsolete-version-guard warning. APK signature, update certificate, minSdk=30, version metadata and ZIP/native alignment verified. Full Arabic OCR assets and ARM64/x86_64 Tesseract libraries are present.
+110 local tests passed, including 10 new dual-account tests. Covers same-package window isolation, shared gesture serialization, clone recognition, independent selection and confirmation, per-account error/door recovery, continuing after one account exhausts keys, parallel AI replies, shared request limit, stale callbacks, unrelated app rejection, and OCR coordinate clipping/translation. Android Lint: 0 errors; one existing obsolete API guard warning. APK signature, update certificate, version/minSdk, and ZIP/native alignment verified. Arabic OCR assets and ARM64/x86_64 libraries remain included.
 
-**No live Nusuk UI/device was available. Actual modal closing, Back behavior, category labels and service availability must be checked on the user's device.**
+**No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `99d87de00fea8ed1af95dd4c661324ef332d903c424d4e44a515607c247f4627`
+SHA-256: `479c7d0ab9cd474ea22d59c887e4fd1fa781c34f121e79267e209f666661f89d`
