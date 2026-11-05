@@ -1,8 +1,19 @@
-# Nusuk Quiz Assistant — 1.3.3 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.4 (Android 11+)
 
-[Download APK 1.3.3](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.3.apk)
+[Download APK 1.3.4](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.4.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=13. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=14. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## تحسين السرعة والأسئلة التي لا تصل إلى AI
+
+- الفاصل الداخلي الأدنى بين الضغطات 350ms بدلًا من 2500ms، والمتابعة الدورية 400ms بدلًا من 1800ms. أحداث نسك تعجّل المتابعة دون إلغاء موعد أقرب كان مجدولًا؛ انتهاء الضغط أو رد AI يعجّل الخطوة التالية.
+- تستمر حماية منع تكرار فتح الباب أو التأكيد على نفس الجولة؛ تقليل الانتظار لا يسمح بصرف مفتاحين على نفس الشاشة.
+- لا يعيد التحقق من حساب واحد مسح نصوص الحساب الآخر. تظل القراءة البصرية مقصورة على نافذة الحساب المطلوب، وبفاصل لا يقل عن 600ms بين محاولات الالتقاط. لم تُلغَ ضوابط صلاحية الصورة أو فصل الحسابين.
+- تُحلّل صيغة بنك الأسئلة المحفوظة مرة واحدة حتى يتغير محتواها؛ مطابقة السؤال الكامل واختياراته تستبدل البحث في كل تجميعات أسطر الشاشة عندما تكون قراءته كاملة.
+- إصلاح تجاهل الاختيارات الرقمية، بما فيها الأرقام العربية والفارسية، ودعم صيغ مثل «بماذا»، «بمن»، «لمن»، «على يد من»، والأسئلة الواضحة المنتهية بعلامة استفهام.
+- وجود إجابة قديمة للبنك خارج الاختيارات الحالية لا يحجب طلب AI. لا تُعتمد إجابة غير مؤكدة أو مطابقة ملتبسة تلقائيًا.
+- الانتقال اليدوي لسؤال مختلف يلغي انتظار طلب السؤال القديم ويسمح بطلب السؤال الحالي دون تصفير عداد الطلبات أو استخدام الرد المتأخر.
+- عند عدم اكتمال قراءة السؤال وأربعة اختيارات تظهر رسالة توضح ذلك. أخطاء AI وانخفاض الثقة وغياب السماح بالإجابة التلقائية تظل ظاهرة؛ سرعة خدمة AI وتحميل نسك لا يمكن ضمانها.
 
 ## تشغيل حسابين جنب بعض
 
@@ -32,8 +43,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-110 local tests passed, including 10 new dual-account tests. Covers same-package window isolation, shared gesture serialization, clone recognition, independent selection and confirmation, per-account error/door recovery, continuing after one account exhausts keys, parallel AI replies, shared request limit, stale callbacks, unrelated app rejection, and OCR coordinate clipping/translation. Android Lint: 0 errors; one existing obsolete API guard warning. APK signature, update certificate, version/minSdk, and ZIP/native alignment verified. Arabic OCR assets and ARM64/x86_64 libraries remain included.
+124 local tests passed (110 existing plus 14 new parser, fast-flow and AI recovery cases). Covers numeric choices in native/OCR text, Arabic/Persian numbers, previously unrecognized question forms, inherited clickable question nodes, incomplete/duplicate choice rejection, unusable bank answers falling back to AI, manual question changes while an old request is pending, budget preservation, bank cache invalidation, short tap debounce, and duplicate-submit protection after partial frames. A local 2,001-entry bank scenario completed ten question matches successfully; this is not a device speed benchmark. All existing two-account isolation and door-recovery tests also passed. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, version metadata, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `479c7d0ab9cd474ea22d59c887e4fd1fa781c34f121e79267e209f666661f89d`
+SHA-256: `38a2acb71aaa26102fb6df8e0f3b063999c751705065ab62eb7a7357ce22020e`
