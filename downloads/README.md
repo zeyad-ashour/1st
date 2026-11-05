@@ -1,24 +1,23 @@
-# Nusuk Quiz Assistant — 1.2.2
+# Nusuk Quiz Assistant — 1.3.0
 
-[Download APK 1.2.2](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.2.2.apk)
+[Download APK 1.3.0](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.0.apk)
 
-Android 11+; ARM64/x86_64. Debug/test APK. Same signing certificate as 1.2.1; install as an update to retain the local bank and device-local encrypted API key.
+Android 11+; ARM64/x86_64. Debug/test APK. Same signing certificate as 1.2.2; install as an update without uninstalling to preserve local answers and the encrypted device-local API key.
 
-## تشخيص اتصال Gemini
+## استيراد بنك أسئلة
 
-هذه نسخة تشخيص لخطأ 404، وليست تأكيدًا أن مشكلة الخدمة قد أُصلحت.
+1. نزّل ملف البنك JSON على جهازك.
+2. افتح التطبيق ثم **استيراد بنك أسئلة من ملف** من الرئيسية أو إدارة البنك.
+3. اختر الملف؛ راجع عدد الجديد والمكرر والمتعارض والسجلات غير الصالحة، ثم الأسئلة والإجابات.
+4. اضغط **حفظ الأسئلة الجديدة** لاستيرادها كاقتراحات غير معتمدة. إذا راجعت كامل الدفعة المعروضة، يمكنك تحديد **راجعت إجابات الدفعة وأعتمد استخدامها محليًا** قبل الحفظ.
+5. الإجابات المعتمدة تستخدم البنك المحلي قبل AI. المقترحات غير المعتمدة لا تُستخدم تلقائيًا دون مراجعة.
 
-1. ثبّت التحديث دون حذف التطبيق السابق.
-2. افتح **إعدادات الذكاء الاصطناعي** واترك الرابط والنموذج والمفتاح المحفوظ كما هي.
-3. اضغط **حفظ واختبار الاتصال** مرة واحدة.
-4. عند الفشل يظهر URL الفعلي وHTTP وstatus ورسالة الخطأ المنظمة من الخدمة. اضغط **نسخ تشخيص الاتصال** وأرسل النص للمراجعة.
+الصيغة قائمة JSON من عناصر question/answer (أو q/a). الحد 2 ميجابايت و10000 سجل، UTF-8. لا حاجة لصلاحية الوصول لكل الملفات؛ يتم اختيار ملف واحد عبر مدير الملفات. لا تُرسل بيانات الملف إلى AI. التكرار لا ينشئ نسخًا إضافية، والتعارض لا يستبدل إجابة موجودة. تُتجاهل علامات verified الواردة من الملف؛ الاعتماد قرار صريح داخل التطبيق. المعاينة لا تحفظ شيئًا قبل تأكيدك. الدفعات الأكبر من 150 سؤالًا تُستورد كاقتراحات للمراجعة.
 
-التشخيص يظهر لاختبار الاتصال اليدوي فقط؛ لا تُعرض رؤوس الطلب أو نص السؤال أو جسم الرد الكامل. تُزال بيانات الدخول ومعاملات الاستعلام من الرابط ويُحجب المفتاح المعروف وأنماط المفاتيح من رسالة الخطأ. لا يتم إرسال التقرير تلقائيًا ولا حفظه في سجل دائم. شاشة الإعدادات تظل محمية من الالتقاط؛ استخدم زر النسخ للنص التشخيصي فقط. لم تتغير آلية اختيار الإجابات أو التكرار.
+The user's conversation files, extracted bank, and review report are not published in this repository or embedded in the APK. They are provided separately in the task conversation.
 
 ## Actual validation
 
-75 local tests passed, including 14 native Gemini HTTPS/mock tests, three diagnostic redaction tests, 30 AI/flow tests, four UI/storage tests, and 24 core tests. Android Lint: zero issues. APK signature, matching update certificate, version metadata, and ZIP/native 16 KB alignment verified.
+84 local tests passed, including nine importer/preview tests covering the prepared 56-question fixture, malformed files, trust flags, duplicates, conflicts, preserving existing answers, idempotent imports, and explicit approval. Android Lint: zero issues. APK signature, matching update certificate, version metadata, and ZIP/native 16 KB alignment verified. No real Android device or live Gemini key was used for these checks.
 
-**No live Google API key or Android device was available. Real Gemini availability and the cause of the user's 404 still require the device-side diagnostic report.**
-
-SHA-256 1.2.2: `edf3c8c75950113def659faf8a431cc7a84f480b6bb820879e01b7d1e78b9b06`
+SHA-256 1.3.0: `394944e0e338171c631638248358b0f87a93e0ff3c40eabe12d2a3dfe6c53d37`
