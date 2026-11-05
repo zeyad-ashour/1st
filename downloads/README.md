@@ -1,8 +1,14 @@
-# Nusuk Quiz Assistant — 1.3.5 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.6 (Android 11+)
 
-[Download APK 1.3.5](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.5.apk)
+[Download APK 1.3.6](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.6.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=15. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=16. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## التعرف التلقائي على الحسابات
+
+تم حذف مفتاح **تشغيل الحسابين بتقسيم الشاشة** من الواجهة. المساعد يكتشف نافذة نسك الواحدة أو النافذتين الظاهرتين تلقائيًا، بما فيهما Parallel Space؛ لا يتطلب اختيار وضع يدوي، ولا يمنعه إعداد المفتاح القديم لو كان مقفولًا. عند ظهور الحساب الثاني يبدأ التبادل، وعند اختفائه يكمل الحساب الموجود. إيقاف وتشغيل المساعدة والتتابع يظل تحت تحكم المستخدم.
+
+يُحتفظ بآخر باب عامل من إعدادات الحساب الواحد السابقة، ولا يتسبب تغيير حجم النافذة عند إضافة أو إغلاق الحساب الثاني في تكرار ضغطة **افتح الباب** التي اكتملت بالفعل.
 
 ## التبادل الفعلي وParallel Space والاعتماد التلقائي
 
@@ -16,7 +22,7 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## تحسين السرعة والأسئلة التي لا تصل إلى AI
 
-- التسريع السابق خفّض انتظار الحساب الواحد إلى 350ms والمتابعة إلى 400ms؛ وضع الحسابين في 1.3.5 يستخدم 180ms لكل حساب و200ms للمتابعة، ويعجّل المتابعة عند انتهاء الضغطة أو وصول الرد. أحداث نسك تعجّل المتابعة دون إلغاء موعد أقرب كان مجدولًا؛ انتهاء الضغط أو رد AI يعجّل الخطوة التالية.
+- المتابعة التلقائية تستخدم 180ms لكل حساب و200ms للفحص الدوري، وتعجّل الخطوة التالية عند انتهاء الضغطة أو وصول رد AI. أحداث نسك تعجّل المتابعة دون إلغاء موعد أقرب كان مجدولًا؛ انتهاء الضغط أو رد AI يعجّل الخطوة التالية.
 - تستمر حماية منع تكرار فتح الباب أو التأكيد على نفس الجولة؛ تقليل الانتظار لا يسمح بصرف مفتاحين على نفس الشاشة.
 - لا يعيد التحقق من حساب واحد مسح نصوص الحساب الآخر. تظل القراءة البصرية مقصورة على نافذة الحساب المطلوب، وبفاصل لا يقل عن 600ms بين محاولات الالتقاط. لم تُلغَ ضوابط صلاحية الصورة أو فصل الحسابين.
 - تُحلّل صيغة بنك الأسئلة المحفوظة مرة واحدة حتى يتغير محتواها؛ مطابقة السؤال الكامل واختياراته تستبدل البحث في كل تجميعات أسطر الشاشة عندما تكون قراءته كاملة.
@@ -25,13 +31,12 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 - الانتقال اليدوي لسؤال مختلف يلغي انتظار طلب السؤال القديم ويسمح بطلب السؤال الحالي دون تصفير عداد الطلبات أو استخدام الرد المتأخر.
 - عند عدم اكتمال قراءة السؤال وأربعة اختيارات تظهر رسالة توضح ذلك. أخطاء AI وعدم اكتمال القراءة تظل ظاهرة؛ سرعة خدمة AI وتحميل نسك لا يمكن ضمانها.
 
-## تشغيل حسابين جنب بعض
+## الاستخدام
 
-1. ثبّت التحديث، وتأكد أن خدمة إمكانية الوصول والمساعدة مفعّلتان.
-2. فعّل **تشغيل الحسابين بتقسيم الشاشة** من الصفحة الرئيسية للمساعد؛ الوضع مقفول افتراضيًا للحفاظ على التشغيل بحساب واحد.
-3. افتح نسك الأصلي ونسخته داخل Parallel Space جنب بعض، وكلاهما على صفحة الأبواب أول مرة.
-4. فعّل الاختيار والتكرار التلقائيين من الزر 3. إذا كنت تعتمد على AI، تأكد أن الاتصال به مفعّل في إعداداته. الاعتماد التلقائي للبنك وردود AI مفعّل في هذا التحديث.
-5. راقب أول جولة في النافذتين. الشريط يعرض حالة منفصلة لكل جانب؛ الضغط عليه يوقف الوضع التلقائي للحسابين. إيقاف التلقائي ثم تفعيله يعيد تشغيل حالة الحسابين.
+1. ثبّت التحديث فوق النسخة الحالية، وتأكد أن خدمة إمكانية الوصول والمساعدة مفعّلتان.
+2. افتح نسك بحساب واحد، أو افتح نسك الأصلي ونسخة Parallel Space ظاهرين جنب بعض. اكتشاف عدد الحسابات تلقائي؛ افتح صفحة الأبواب أول مرة للتعرف على النسخة داخل Parallel Space.
+3. فعّل الاختيار والتكرار التلقائيين من الزر 3. اتصال AI وإعداد الاعتماد التلقائي يظلان كما ضبطتهما؛ لا حاجة إلى مفتاح وضع الحسابين.
+4. الشريط يعرض حالة الحساب أو الحسابين. الضغط عليه يوقف التتابع؛ إيقاف التلقائي ثم تفعيله يعيد تشغيل حالة الحسابات.
 
 لكل نافذة سؤال، وطلب AI، واختيار، وتأكيد، وباب حالي مستقل. طلبا AI يمكنهما العمل بالتوازي، أما الضغطات فتتم بالتبادل لأن لمس الجهاز مشترك. حد طلبات جلسة AI مشترك بين الحسابين، والبنك المحلي المعتمد مشترك لتقليل الطلبات المتكررة في الجولات التالية.
 
@@ -53,8 +58,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-135 local tests passed. Adds actual-action turn alternation despite extra scans, ready-account progress when the other lane is blocked, Parallel Space door-dialog ownership and Open action, scoped top-dialog reading, known helper-package/window replacement, nonblocking OCR and its next-turn delivery, stale OCR rejection, automatic approval of existing/imported/new AI answers (including low confidence), preserving rejection of explicitly wrong AI answers, automatic import without a manual approval screen, migration respecting the pause switch and later opt-out, and continuing the result/replay sequence after an AI error. All 124 earlier speed, parser, two-account isolation, AI protocol, import/export and door-recovery tests remain passing. Android Lint: 0 errors and one existing obsolete API guard warning. APK signing/update certificate, versionCode=15, versionName=1.3.5, minSdk=30 and ZIP/native alignment verified.
+139 local tests passed: the existing 135 plus automatic detection with the old mode flag disabled, moving from one account to two and back without changing a setting (including restoring the old working door), removal of the manual account-mode switch while retaining the pause control, and preventing a completed key-spending Open action from repeating after a pane resize. Existing alternating-turn, Parallel dialog/helper, OCR, automatic approval, AI, import/export and door-recovery tests remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=16, versionName=1.3.6, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `fda60f211b2b96e50b2d8bc9f59f200264b42b6e1df19513bd96078ce2a2ff86`
+SHA-256: `2c3180bf32e894d6bc40b6ae228bcad350e24f7d6cb4ab6206c0c9ce784a9db2`
