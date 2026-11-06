@@ -1,8 +1,12 @@
-# Nusuk Quiz Assistant — 1.3.10 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.11 (Android 11+)
 
-[Download APK 1.3.10](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.10.apk)
+[Download APK 1.3.11](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.11.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=20. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=21. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## إصلاح التوقف عند اللعب مرة أخرى
+
+قبول Android لأمر الضغط لا يثبت أن صفحة النتيجة انتقلت. إذا بقيت الصفحة نفسها 2.5 ثانية بعد إعادة اللعب، يسمح المساعد بمحاولتين إضافيتين فقط، وكل محاولة تتطلب قراءة بصرية جديدة وإثباتًا حديثًا للزر. لا يستخدم موضعًا محفوظًا ولا يعيد صرف مفتاح أو تأكيد الإجابة. إذا تعذرت قراءة الخط الصغير، يمكن لعنوان وصول مطابق ومحصور داخل الزر الأسود المحدد بصريًا تأكيد هوية الزر؛ عنوان واسع أو قراءة بصرية صريحة مخالفة يرفضان ذلك.
 
 ## استرداد قوائم المشاركة ومراجعة التتابع
 
@@ -87,7 +91,7 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-187 local tests passed. Eight new recovery checks cover quarter-second spacing, the forty-second cadence, refreshing both panes without budget reset or duplicate Open, safe same-pane backdrops, rejecting full-screen/covered backdrops, Samsung action chooser signatures and bounded share retries. Twelve new strict-Replay cases cover a dedicated native action whose misleading center falls inside the Share sibling, rejecting mixed footer parents, non-clickable/disabled/hidden/out-of-pane nodes and duplicate actions; pixel proof rejection after button/text changes; rejecting proof attached to different coordinates; native actions causing zero coordinate gestures or screenshots; unqualified native text and whole-page OCR failing closed; blocking changed pixels between caption read and final check; allowing exactly the proven rectangle; and rejecting late verification after a foreground/window change. Existing controller fixtures now explicitly mock native actions and screenshot validation; actual pixel-integrity tests use bitmaps. All prior continuous-round, startup, floating recovery, Parallel, bank/AI and import/export scenarios remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=20, versionName=1.3.10, minSdk=30 and ZIP/native alignment verified.
+189 local tests passed. Two additional regressions cover an accepted Replay click that leaves the result screen unchanged, bounded retries that require fresh visual readings, and unreadable button OCR with a tight native caption; broad or contradictory captions remain rejected. Eight new recovery checks cover quarter-second spacing, the forty-second cadence, refreshing both panes without budget reset or duplicate Open, safe same-pane backdrops, rejecting full-screen/covered backdrops, Samsung action chooser signatures and bounded share retries. Twelve new strict-Replay cases cover a dedicated native action whose misleading center falls inside the Share sibling, rejecting mixed footer parents, non-clickable/disabled/hidden/out-of-pane nodes and duplicate actions; pixel proof rejection after button/text changes; rejecting proof attached to different coordinates; native actions causing zero coordinate gestures or screenshots; unqualified native text and whole-page OCR failing closed; blocking changed pixels between caption read and final check; allowing exactly the proven rectangle; and rejecting late verification after a foreground/window change. Existing controller fixtures now explicitly mock native actions and screenshot validation; actual pixel-integrity tests use bitmaps. All prior continuous-round, startup, floating recovery, Parallel, bank/AI and import/export scenarios remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=21, versionName=1.3.11, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
