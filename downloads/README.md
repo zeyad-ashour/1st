@@ -1,8 +1,14 @@
-# Nusuk Quiz Assistant — 1.3.16 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.17 (Android 11+)
 
-[Download APK 1.3.16](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.16.apk)
+[Download APK 1.3.17](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.17.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=26. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=27. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## التوقف عند الحد اليومي للمشاركة
+
+رسالة «لقد وصلت إلى الحد اليومي للمشاركة في السحب. حاول مرة أخرى غدًا» توقف العمل على حسابها فور التعرف عليها من النص أو OCR، حتى لو لم يكن دوره الحالي. لا يُضغط إغلاق ولا يُغيّر الباب ولا يبدأ طلب AI جديد لهذا الحساب؛ تُلغى طلباته المعلقة وتُحذف ضغطاته المنتظرة. تظل بقية الحسابات مستمرة دون انتظار مهلة التعطل أو انتهاء دفعة العشرة أسئلة.
+
+إذا كان هو الحساب الوحيد الظاهر، أو ظهر الحد في الحسابين، يُوقف التتابع تلقائيًا مع سبب واضح، ولا يعيد التشغيل عند الجاهزية تفعيله. مراجعة40ثانية أو إغلاق الرسالة يدويًا لا يعيدان الحساب المحدود خلال جلسة التشغيل. للإعادة لاحقًا يستخدم المستخدم تشغيل/استئناف صراحة؛ لا يوجد تشغيل مجدول عند منتصف الليل. ميزانية AI والبنك والفواصل الزمنية تبقى كما هي. لا تُفسَّر رسالة الخطأ العامة أو سؤال يقتبس نص الحد اليومي كسبب إيقاف يومي.
 
 ## ثبات الفردي ودفعات الحسابين
 
@@ -101,4 +107,4 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-208 local tests passed; Android Lint passed with no errors. APK signature, same update certificate, versionCode=26, versionName=1.3.16, minSdk=30 and ZIP/native alignment verified. Nine added stability tests cover ten-result batches, result de-duplication, stalled-account switching, preserving partial batches, inner share-panel bounds, embedded Parallel sharing, single-account 400ms spacing and forty-second review without budget or Open reset, and an end-to-end first ten-question batch. Legacy per-tap fixtures explicitly retain their earlier scheduling to preserve those regressions. Controller regressions now expect direct native/OCR Replay taps without a visual proof or confirmation screenshot. Semantic/pixel helper tests remain utility tests, not requirements imposed by the Replay execution path. Step settling, periodic review, share recovery, account isolation, AI budget and paid-action guards are retained. No live Nusuk device is attached; device validation is still required.
+215 local tests passed; Android Lint passed with no errors. APK signature, same update certificate, versionCode=27, versionName=1.3.17, minSdk=30 and ZIP/native alignment verified. Seven daily-limit regressions cover exact/wrapped messages, per-account and all-account stopping, OCR, inactive-account detection, preserving budget and remaining account activity, latching across forty-second review, and rejecting quoted messages. Nine stability tests cover ten-result batches, result de-duplication, stalled-account switching, preserving partial batches, inner share-panel bounds, embedded Parallel sharing, single-account 400ms spacing and forty-second review without budget or Open reset, and an end-to-end first ten-question batch. Legacy per-tap fixtures explicitly retain their earlier scheduling to preserve those regressions. Controller regressions now expect direct native/OCR Replay taps without a visual proof or confirmation screenshot. Semantic/pixel helper tests remain utility tests, not requirements imposed by the Replay execution path. Step settling, periodic review, share recovery, account isolation, AI budget and paid-action guards are retained. No live Nusuk device is attached; device validation is still required.
