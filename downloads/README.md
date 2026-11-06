@@ -1,12 +1,20 @@
-# Nusuk Quiz Assistant — 1.3.7 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.8 (Android 11+)
 
-[Download APK 1.3.7](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.7.apk)
+[Download APK 1.3.8](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.8.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=17. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=18. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## إصلاح الوقوف عند صفحة النجاح «العب مرة أخرى»
+
+كان وجود رابط المشاركة وحده يفرض قراءة بصرية إضافية على زر العودة، حتى لو كان موقع الزر واضحًا ومنفصلًا. أُلغي هذا الشرط العام: الزر الواضح والمنفصل يُضغط مباشرة، ويظل التداخل الحقيقي مع رابط المشاركة سببًا لرفض الضغطة والتحقق من موضعها.
+
+إذا قرأت إمكانية الوصول عبارة النجاح لكنها لم تُرجع نص زر العودة، لا تعتبر الصفحة مكتملة القراءة وتظل عالقة؛ تنتقل إلى قراءة منطقة الزر. في التخطيط الفاتح مثل الصورة، تبحث عن زر داكن عريض وفريد أسفل صفحة النتيجة، ثم تقرأ عنوانه وحده بعد تكبيره وتحسين التباين بنمط سطر واحد. لا تولد ضغطة إلا بعد التعرف على عبارة إعادة اللعب. إن لم تنطبق الصورة أو كان هناك أكثر من زر مرشح، يبقى مسار OCR المعتاد متاحًا.
+
+التحقق منفصل لكل جزء من الشاشة. نافذة أعلى تغطي موضع الزر تمنع الضغطة بدل الضغط داخلها بالخطأ. لا يعتمد هذا الإصلاح على معايرة يدوية أو إحداثيات ثابتة، وتظل حماية رابط المشاركة وإغلاق المشاركة المعروفة كما في الإصدار السابق.
 
 ## منع المشاركة والتشغيل والاستئناف التلقائي
 
-- لا يُستخدم رابط **شارك لتحصل على فرصة** كخطوة في التتابع. إذا كانت مساحة زر تتداخل معه، تُرفض الضغطة. أزرار إعادة اللعب/السؤال التالي التي تظهر بجوار رابط المشاركة تُراجع بصريًا قبل الضغط على موضع النص، بدل الثقة في مساحة وصول قد تشمل الزر والرابط معًا. التحقق الإضافي خاص بهذه المرحلة؛ بقية الخطوات تبقى سريعة.
+- لا يُستخدم رابط **شارك لتحصل على فرصة** كخطوة في التتابع. إذا كانت مساحة زر تتداخل معه، تُرفض الضغطة. أزرار إعادة اللعب/السؤال التالي ذات المساحات المتداخلة مع رابط المشاركة تُراجع بصريًا قبل الضغط على موضع النص؛ مجرد وجود الرابط بجوار زر منفصل لا يفرض OCR.
 - عند التعرف على نافذة مشاركة النظام بعد تشغيل نسك، تُغلق بزر **رجوع** فقط، بحد محاولتين وفاصل بينهما. لا تُختار جهة اتصال أو تطبيق أو زر إرسال. نوافذ المشاركة داخل التطبيق تُغلق عندما يظهر عنوان مشاركة ووجهة وزر إغلاق واضح ومحدد.
 - بعد إغلاق مشاركة ظهرت بالخطأ عقب زر إعادة اللعب، يُعاد تحديد زر العودة بصريًا لاستكمال التتابع؛ لا تُكرر ضغطة **افتح الباب** أو **تحقق** لمجرد عدم وصول تأكيدها.
 - التشغيل التلقائي عند الجاهزية مُفعّل افتراضيًا: يلزم تفعيل خدمة إمكانية الوصول من Android، وأن تكون الشاشة مضاءة وغير مقفلة، وأن يظهر نسك أو يتم التعرف عليه داخل Parallel Space، مع وجود إجابات محلية أو اتصال AI مضبوط. يمكن بدء القراءة وحدها للتعرف على نسخة Parallel قبل السماح بالضغط.
@@ -69,8 +77,8 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-157 local tests passed. Includes 20 consecutive complete single-account rounds (100 actions) without manual restart; result paragraphs and next-question progression; bounded safe category retries; missing gesture callback recovery without repeating Open; continuing the other account; OCR timeout/late result rejection; broad Replay target versus Share link; fresh OCR after an accidental system chooser; closing an owned Share dialog without selecting a destination; chooser identity/window/attempt guards; conditional startup, screen lock/sleep and explicit-stop handling; refusing automatic key spending without bank/configured AI; visible key/budget errors; floating Pause/Resume/AI-session buttons; preserving request counts when recreating readers. All earlier automatic window detection, Parallel, bank/AI and import/export cases remain passing. Android Lint: 0 errors and one existing obsolete API guard warning. Test-only deprecated Robolectric setters emit compiler warnings. APK signature/update certificate, versionCode=17, versionName=1.3.7, minSdk=30 and ZIP/native alignment verified.
+167 local tests passed. Ten new cases recreate the two 2000×1200 result-pane/button/link geometries from the screenshot, check direct Replay with an isolated Share footer (zero captures), recover two partial result accessibility trees through one shared capture, validate the narrow caption crop, reject wrong/low-confidence captions, ambiguous dark buttons, dark backgrounds, out-of-pane boxes and covering windows. The earlier 20-round/100-action single-account sequence now includes Share footers. Pixel-layout fixtures are synthetic, and the caption reader is mocked in unit tests; actual Arabic OCR/device behavior remains to be validated. All earlier AI, automatic startup, floating recovery, Share closure, Parallel and import/export cases remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=18, versionName=1.3.8, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
-SHA-256: `a8c12ac18d001b848136dc3f6124adcdd4bbdb2e8e226d8406281362586a5fe0`
+SHA-256: `aa62044ae949d75989ef88aadba1c4764ab05ede1710f937af54bcc0f2a296d7`
