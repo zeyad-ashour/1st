@@ -1,8 +1,12 @@
-# Nusuk Quiz Assistant — 1.3.12 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.13 (Android 11+)
 
-[Download APK 1.3.12](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.12.apk)
+[Download APK 1.3.13](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.13.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=22. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=23. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## إصلاح صيغ الأسئلة الظاهرة في الفيديو
+
+يتعرف القارئ على بدايات «بأي» و«لأي» و«قال» و«ورد»، بما فيها عبارة الاقتباس دون علامة استفهام. يستبعد النص الإرشادي المعروف الذي يبدأ «بمفتاحك/بمفاتيحك» ويشرح الإجابة الصحيحة والسحب، حتى لا يصبح أحد الاختيارات الأربعة أثناء OCR. إذا ظهر اختيار واحد محدد بالفعل ولم توجد مطابقة من البنك، يستكمل تأكيده دون طلب AI أو تخمين إجابة أخرى؛ لا يؤكد عند غياب الاختيار أو تعدد الاختيارات المحددة، ولا يكرر تأكيد الجولة نفسها. اختبارات هذه الحالات تستخدم نصوصًا وتخطيطات مأخوذة من الفيديو؛ لا تمثل تجربة حية على الجهاز.
 
 ## الضغط المباشر على اللعب مرة أخرى
 
@@ -81,4 +85,4 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-186 local tests passed; Android Lint passed with no errors. APK signature, same update certificate, versionCode=22, versionName=1.3.12, minSdk=30 and ZIP/native alignment verified. Controller regressions now expect direct native/OCR Replay taps without a visual proof or confirmation screenshot. Semantic/pixel helper tests remain utility tests, not requirements imposed by the Replay execution path. Step settling, periodic review, share recovery, account isolation, AI budget and paid-action guards are retained. No live Nusuk device is attached; device validation is still required.
+191 local tests passed; Android Lint passed with no errors. APK signature, same update certificate, versionCode=23, versionName=1.3.13, minSdk=30 and ZIP/native alignment verified. Controller regressions now expect direct native/OCR Replay taps without a visual proof or confirmation screenshot. Semantic/pixel helper tests remain utility tests, not requirements imposed by the Replay execution path. Step settling, periodic review, share recovery, account isolation, AI budget and paid-action guards are retained. No live Nusuk device is attached; device validation is still required.
