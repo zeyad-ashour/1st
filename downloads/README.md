@@ -1,8 +1,16 @@
-# Nusuk Quiz Assistant — 1.3.9 (Android 11+)
+# Nusuk Quiz Assistant — 1.3.10 (Android 11+)
 
-[Download APK 1.3.9](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.9.apk)
+[Download APK 1.3.10](https://github.com/zeyad-ashour/1st/raw/refs/heads/apk-download/downloads/NusukQuizAssistant-1.3.10.apk)
 
-Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=19. Install over the earlier full build without uninstalling or clearing its bank/settings.
+Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verified local bank, import/export, and door-error recovery. Same signing certificate; versionCode=20. Install over the earlier full build without uninstalling or clearing its bank/settings.
+
+## استرداد قوائم المشاركة ومراجعة التتابع
+
+- مهلة 250ms بعد اكتمال كل ضغطة، و300ms بعد إغلاق المشاركة، قبل تنفيذ ضغطة جديدة في أي حساب.
+- لقائمة مشاركة النظام المعروفة، يختار المساعد مساحة فارغة في منتصف رأس الحساب نفسه فقط عندما تكون خارج جميع القوائم والنصوص/الأزرار المعروفة. عند غياب مساحة مؤكدة يستخدم رجوع، ولا يختار مستلمًا أو تطبيقًا. يدعم أيضًا قائمة «تحديد إجراء» عندما يظهر عنوانها مع وجهتين معروفتين على الأقل داخل حزمة النظام.
+- محاولتا إغلاق بفاصل 1500ms؛ بعد استنفادهما لا تُرسل ضغطات متواصلة، وتتاح دفعة محاولات أخرى بعد 40 ثانية إذا بقيت المشاركة معروفة. لا يمنع ذلك الحساب الآخر غير المغطى من المتابعة.
+- كل 40 ثانية من التشغيل الآلي، عندما لا توجد ضغطة/مراجعة بصرية جارية، يتوقف الإرسال مؤقتًا 500ms على الأقل ويطلب قراءة بصرية كاملة لكل حساب ظاهر تم التعرف عليه. قد تستغرق القراءة أكثر حسب الجهاز. تُحذف القراءات والضغطات المعلقة القديمة، ويُراجع التعطل الذي تجاوز 20 ثانية، ويُستأنف التنقل المسموح من الحالة الحالية.
+- المراجعة لا تجدد ميزانية AI، ولا تلغي طلبًا جاريًا، ولا تكرر صرف مفتاح أو تأكيدًا لمجرد تأخر الشاشة. زر المشاركة ما زال مستبعدًا من التتابع، مع بقاء إثبات إعادة اللعب الموضح أدناه.
 
 ## تشديد زر إعادة اللعب لمنع إصابة رابط المشاركة
 
@@ -17,7 +25,7 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 ## منع المشاركة والتشغيل والاستئناف التلقائي
 
 - لا يُستخدم رابط **شارك لتحصل على فرصة** كخطوة في التتابع. إذا كانت مساحة زر تتداخل معه، تُرفض الضغطة. إعادة اللعب يستخدم إجراء النقر الخاص بالعنصر إن أمكن؛ وإلا يلزم إثبات بصري حديث قبل أي لمس بإحداثيات. السؤال التالي يظل خاضعًا لفحص التداخل مع رابط المشاركة.
-- عند التعرف على نافذة مشاركة النظام بعد تشغيل نسك، تُغلق بزر **رجوع** فقط، بحد محاولتين وفاصل بينهما. لا تُختار جهة اتصال أو تطبيق أو زر إرسال. نوافذ المشاركة داخل التطبيق تُغلق عندما يظهر عنوان مشاركة ووجهة وزر إغلاق واضح ومحدد.
+- عند التعرف على نافذة مشاركة النظام بعد تشغيل نسك، تُغلق بلمسة خارجية مقيدة كما سبق أو بزر **رجوع**، بحد محاولتين وفاصل بينهما. لا تُختار جهة اتصال أو تطبيق أو زر إرسال. نوافذ المشاركة داخل التطبيق تُغلق عندما يظهر عنوان مشاركة ووجهة وزر إغلاق واضح ومحدد.
 - بعد إغلاق مشاركة ظهرت بالخطأ عقب زر إعادة اللعب، يُعاد تحديد زر العودة بصريًا لاستكمال التتابع؛ لا تُكرر ضغطة **افتح الباب** أو **تحقق** لمجرد عدم وصول تأكيدها.
 - التشغيل التلقائي عند الجاهزية مُفعّل افتراضيًا: يلزم تفعيل خدمة إمكانية الوصول من Android، وأن تكون الشاشة مضاءة وغير مقفلة، وأن يظهر نسك أو يتم التعرف عليه داخل Parallel Space، مع وجود إجابات محلية أو اتصال AI مضبوط. يمكن بدء القراءة وحدها للتعرف على نسخة Parallel قبل السماح بالضغط.
 - **الإيقاف اليدوي له الأولوية:** الإيقاف من التطبيق أو الشريط يظل نافذًا حتى تشغيل/استئناف أو تفعيل التشغيل عند الجاهزية مجددًا. لا يفعّل المساعد خدمة الوصول أو يفتح قفل الجهاز بنفسه.
@@ -79,7 +87,7 @@ Based on the full 1.3.1/1.3.2 Android 11+ app, with Arabic OCR, direct AI, verif
 
 ## Validation
 
-179 local tests passed. Twelve new strict-Replay cases cover a dedicated native action whose misleading center falls inside the Share sibling, rejecting mixed footer parents, non-clickable/disabled/hidden/out-of-pane nodes and duplicate actions; pixel proof rejection after button/text changes; rejecting proof attached to different coordinates; native actions causing zero coordinate gestures or screenshots; unqualified native text and whole-page OCR failing closed; blocking changed pixels between caption read and final check; allowing exactly the proven rectangle; and rejecting late verification after a foreground/window change. Existing controller fixtures now explicitly mock native actions and screenshot validation; actual pixel-integrity tests use bitmaps. All prior continuous-round, startup, floating recovery, Parallel, bank/AI and import/export scenarios remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=19, versionName=1.3.9, minSdk=30 and ZIP/native alignment verified.
+187 local tests passed. Eight new recovery checks cover quarter-second spacing, the forty-second cadence, refreshing both panes without budget reset or duplicate Open, safe same-pane backdrops, rejecting full-screen/covered backdrops, Samsung action chooser signatures and bounded share retries. Twelve new strict-Replay cases cover a dedicated native action whose misleading center falls inside the Share sibling, rejecting mixed footer parents, non-clickable/disabled/hidden/out-of-pane nodes and duplicate actions; pixel proof rejection after button/text changes; rejecting proof attached to different coordinates; native actions causing zero coordinate gestures or screenshots; unqualified native text and whole-page OCR failing closed; blocking changed pixels between caption read and final check; allowing exactly the proven rectangle; and rejecting late verification after a foreground/window change. Existing controller fixtures now explicitly mock native actions and screenshot validation; actual pixel-integrity tests use bitmaps. All prior continuous-round, startup, floating recovery, Parallel, bank/AI and import/export scenarios remain passing. Android Lint: 0 errors, one existing obsolete API guard warning. APK signature/update certificate, versionCode=20, versionName=1.3.10, minSdk=30 and ZIP/native alignment verified.
 
 **No live Nusuk / Parallel Space device was available. The split-screen workflow, host package identity, screenshot permissions and actual taps still need verification on the user's device. Android 11+ is required; some clone apps may prevent accessibility or screenshots.**
 
